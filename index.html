@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WWE Universe Ranking Manager 2.0</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>WWE Universe Ranking Manager 2.0</h1>
+    <div class="actions-inline">
+      <button id="btn-save">Guardar</button>
+      <button id="btn-reset" class="danger">Reiniciar Datos</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="main-tabs">
+    <button class="tab-btn active" data-tab="estado">Estado del Universo</button>
+    <button class="tab-btn" data-tab="gestion">Gestión de Luchadores</button>
+    <button class="tab-btn" data-tab="rankings">Rankings</button>
+    <button class="tab-btn" data-tab="combates">Registrar Combate</button>
+    <button class="tab-btn" data-tab="carteleras">Carteleras</button>
+    <button class="tab-btn" data-tab="listado">Listado General</button>
+    <button class="tab-btn" data-tab="historial">Historial de Shows</button>
+  </nav>
+
+  <main>
+    <section class="tab-panel active" id="tab-estado">
+      <div class="panel-grid">
+        <article class="card">
+          <h2>Estado rápido</h2>
+          <div id="universe-summary"></div>
+        </article>
+        <article class="card">
+          <h2>Acciones globales</h2>
+          <div class="stack">
+            <button id="btn-soft-draft">Ejecutar Soft Draft</button>
+            <button id="btn-annual-draft">Ejecutar Draft Anual</button>
+            <div id="draft-log" class="small-log"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="tab-gestion">
+      <div class="panel-grid">
+        <article class="card">
+          <h2>Registrar Luchador / Tag Team</h2>
+          <form id="fighter-form" class="stack">
+            <label>Nombre (individual)
+              <input type="text" id="fighter-name" placeholder="Nombre" />
+            </label>
+            <label>Marca
+              <select id="fighter-brand"></select>
+            </label>
+            <label>División
+              <select id="fighter-division"></select>
+            </label>
+            <label class="inline-check"><input type="checkbox" id="is-tag" /> Es Tag Team</label>
+            <div id="tag-fields" class="stack hidden">
+              <label>Nombre del Tag Team<input type="text" id="tag-name" /></label>
+              <label>Integrante 1<input type="text" id="tag-member-1" /></label>
+              <label>Integrante 2<input type="text" id="tag-member-2" /></label>
+            </div>
+            <button type="submit">Registrar</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Luchadores registrados</h2>
+          <div id="fighters-admin"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="tab-rankings">
+      <div class="panel-grid" id="rankings-root"></div>
+    </section>
+
+    <section class="tab-panel" id="tab-combates">
+      <article class="card">
+        <h2>Registrar Combate</h2>
+        <form id="match-form" class="stack">
+          <label>Marca
+            <select id="match-brand"></select>
+          </label>
+          <label>División
+            <select id="match-division"></select>
+          </label>
+          <label>Luchador / Equipo A
+            <select id="match-a"></select>
+          </label>
+          <label>Luchador / Equipo B
+            <select id="match-b"></select>
+          </label>
+          <label>Ganador
+            <select id="match-winner"></select>
+          </label>
+          <label class="inline-check"><input type="checkbox" id="is-title-match" /> Combate por campeonato</label>
+          <button type="submit">Guardar Resultado</button>
+        </form>
+      </article>
+    </section>
+
+    <section class="tab-panel" id="tab-carteleras">
+      <div class="panel-grid">
+        <article class="card">
+          <h2>Generar RAW / SmackDown</h2>
+          <div class="stack">
+            <button id="btn-generate-raw" class="raw">Generar RAW</button>
+            <button id="btn-generate-sd" class="sd">Generar SmackDown</button>
+            <div id="weekly-card-output"></div>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Generar PPV</h2>
+          <div class="stack">
+            <label>Nombre PPV
+              <input type="text" id="ppv-name" placeholder="Ej: SummerSlam" />
+            </label>
+            <button id="btn-generate-ppv">Generar PPV</button>
+            <div id="ppv-card-output"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="tab-listado">
+      <article class="card">
+        <h2>Listado General de Luchadores</h2>
+        <div id="general-list"></div>
+      </article>
+    </section>
+
+    <section class="tab-panel" id="tab-historial">
+      <article class="card">
+        <h2>Historial de Shows</h2>
+        <div class="tabs secondary" id="history-tabs">
+          <button class="tab-btn active" data-history="RAW">RAW</button>
+          <button class="tab-btn" data-history="SMACKDOWN">SMACKDOWN</button>
+          <button class="tab-btn" data-history="PPV">PPV</button>
+        </div>
+        <div id="history-output"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
