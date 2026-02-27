@@ -1,0 +1,49 @@
+:root {
+  --bg: #0f1117;
+  --panel: #171b24;
+  --muted: #aab2c5;
+  --text: #eaf0ff;
+  --raw: #c93232;
+  --sd: #2e62c9;
+  --accent: #f1c40f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+.topbar, .tabs { display:flex; gap: .5rem; padding: .8rem 1rem; align-items:center; }
+.topbar { justify-content: space-between; border-bottom: 1px solid #2b3342; }
+h1,h2,h3 { margin:.2rem 0 .7rem; }
+.tabs { flex-wrap: wrap; border-bottom: 1px solid #2b3342; }
+.tab-btn, button {
+  background:#273146; color:var(--text); border:1px solid #33405c; padding:.5rem .7rem; cursor:pointer; border-radius:8px;
+}
+.tab-btn.active { background:#3a4b70; }
+button.raw { background: #592020; border-color: var(--raw); }
+button.sd { background: #1f315d; border-color: var(--sd); }
+button.danger { background:#612121; }
+main { padding: 1rem; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+.panel-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(330px,1fr)); gap:1rem; }
+.card { background: var(--panel); border:1px solid #2f394d; border-radius: 12px; padding: 1rem; }
+.stack { display:flex; flex-direction:column; gap:.6rem; }
+label { display:flex; flex-direction:column; gap:.25rem; color: var(--muted); }
+input, select { background:#101623; color:var(--text); border:1px solid #394762; border-radius:8px; padding:.5rem; }
+.inline-check { flex-direction: row; align-items:center; gap:.5rem; }
+.hidden { display:none; }
+.table { width:100%; border-collapse: collapse; font-size:.92rem; }
+.table th,.table td { border-bottom:1px solid #2d3750; padding:.35rem; text-align:left; }
+.brand-row.raw { border-left:4px solid var(--raw); padding-left:.5rem; }
+.brand-row.sd { border-left:4px solid var(--sd); padding-left:.5rem; }
+.badge { padding:.1rem .45rem; border-radius:999px; font-size:.72rem; background:#2d3a55; }
+.badge.champ { background: #6c5b16; color:#ffec9a; }
+.badge.risk { background:#6b1f1f; color:#ffd1d1; }
+.small-log { max-height: 220px; overflow:auto; font-size:.88rem; color:var(--muted); }
+.match { padding:.35rem 0; border-bottom:1px dashed #38435f; }
+.arrow-up { color:#6fdc8c; }
+.arrow-down { color:#ff7a7a; }
+.secondary { padding: 0 0 .8rem; border-bottom: 0; }
